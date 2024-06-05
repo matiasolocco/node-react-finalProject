@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { addMenu, selectMenu, selectOneMenu, updateMenu, deleteMenu} = require("../controllers/food.controller")
+const { addMenu, selectMenu, selectOneMenu, updateMenu, deleteMenu} = require("../controllers/menu.controller")
 
 //1º endpoint para agregar un menu
 router.post("/add", addMenu);

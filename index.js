@@ -1,6 +1,5 @@
  //import de dependecias y archivos
 const express = require('express');
-const app = express();
 const { connectDB } = require('./src/utils/database');
 const routerUser = require('./src/api/routes/user.routes');
 const routerMenu = require('./src/api/routes/menu.routes');
@@ -24,7 +23,7 @@ server.use('/user', routerUser);
 
 //ejecucion del servidor
 const PORT = 5001;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Escuchando puerto http://localhost:${PORT}`);
 });
 
