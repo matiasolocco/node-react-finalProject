@@ -17,7 +17,7 @@ const addFood = async (req, res) => {
 
 const selectFood = async (req, res) => {
   try {
-    const foods = await Food.find().populate('ingredients');
+    const foods = await Food.find();
     return res.status(200).json(foods);
   } catch (error) {
     console.log(error);
@@ -28,7 +28,7 @@ const selectFood = async (req, res) => {
 const selectOneFood = async (req, res) => {
   try {
     const { id } = req.params;
-    const findFood = await Food.findById(id).populate('ingredients');
+    const findFood = await Food.findById(id);
     return res.status(200).json(findFood);
   } catch (error) {
     console.log(error);
@@ -54,7 +54,7 @@ const updateFood = async (req, res) => {
 const deleteFood = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(`Deleting food with ID: ${id}`); // Log para depuración
+    console.log(`Deleting food with ID: ${id}`); 
     const deletedFood = await Food.findByIdAndDelete(id);
     if (!deletedFood) {
       return res.status(404).json({ message: "Esta comida no existe" });

@@ -1,11 +1,9 @@
 const User = require('../models/user.model');
-//const Airline = require('../models/airlines.model')
 const bcrypt = require('bcrypt');
 const { validateEmailDB, validatePassword } = require('../../utils/validator');
 const { generateToken } = require("../../utils/jwt")
 
 //1º endpoint --> Registro de usuarios
-//Prueba postman ruta user/register: OK
 const register = async (req, res) => {
   try {
     // creo el documento del usuario
@@ -48,7 +46,7 @@ const login = async (req, res) => {
       return res.status(200).json({ succe: false, message: "El email no está registrado" })
     }
     if (!bcrypt.compareSync(userBody.password, userDB.password)) {
-      return res.status(200).json({ succes: true, message: "contraseña invalida" })
+      return res.status(200).json({ succes: true, message: "contraseña valida" })
     }
     //generar el token
     const token = generateToken({
